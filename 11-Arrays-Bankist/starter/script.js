@@ -123,3 +123,14 @@ const movementsUSD = movements.map(mov => Math.floor(mov * eurToUsd));
 const movementDescriptions = movements.map((mov, i) => `Movement ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`)
 
 // console.log(movementDescriptions);
+
+const deposits = movements.filter(function(mov, i, arr) {
+  return mov > 0
+})
+
+const withdrawals = movements.filter(function(mov, i, arr) {
+  return mov < 0
+})
+console.log(movements);
+console.log(deposits);
+console.log(withdrawals);
