@@ -92,7 +92,7 @@ const createUsernames = function (accs) {
 }
 
 createUsernames(accounts);
-console.log(accounts);
+// console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -131,6 +131,12 @@ const deposits = movements.filter(function(mov, i, arr) {
 const withdrawals = movements.filter(function(mov, i, arr) {
   return mov < 0
 })
-console.log(movements);
-console.log(deposits);
-console.log(withdrawals);
+// console.log(movements);
+// console.log(deposits);
+// console.log(withdrawals);
+
+const balance = movements.reduce(function(acc, cur, i, arr){
+  return acc += cur
+}, 0)
+
+console.log(balance);
