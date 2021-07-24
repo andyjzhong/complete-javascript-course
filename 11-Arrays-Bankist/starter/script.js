@@ -82,6 +82,13 @@ displayMovements(account1.movements);
 
 // console.log(containerMovements.innerHTML);
 
+const createUsernames = function (user) {
+  const username = user.toLowerCase().split(" ").map(name => name[0]).join("");
+  return username;
+}
+
+console.log(createUsernames("Steven Thomas Williams"));
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -110,4 +117,4 @@ const movementsUSD = movements.map(mov => Math.floor(mov * eurToUsd));
 
 const movementDescriptions = movements.map((mov, i) => `Movement ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`)
 
-console.log(movementDescriptions);
+// console.log(movementDescriptions);
