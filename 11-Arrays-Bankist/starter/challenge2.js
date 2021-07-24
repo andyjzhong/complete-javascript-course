@@ -11,13 +11,21 @@ const calcAverageHumanAge = (arr) => {
     }
   })
 
-  console.log(newData);
+  // console.log(newData);
 
   const filteredData = newData.filter(function(cur, i, arr) {
     return cur >= 18
   })
 
-  console.log(filteredData);
+  // console.log(filteredData);
+
+  const sumOfHumanAges = filteredData.reduce(function(acc, cur, i, arr) {
+    // console.log(`Iteration ${i}: ${acc}`)
+    return acc += cur
+  }, 0)
+
+  const averageAdultHumanAge = sumOfHumanAges / filteredData.length;
+  console.log(averageAdultHumanAge);
 }
 
 calcAverageHumanAge(data1);
