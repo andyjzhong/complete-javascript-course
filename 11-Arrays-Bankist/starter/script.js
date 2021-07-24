@@ -82,6 +82,16 @@ displayMovements(account1.movements);
 
 // console.log(containerMovements.innerHTML);
 
+const calcDisplayBalance = function(movements) {
+  const balance = movements.reduce(function(acc, mov) {
+    return acc += mov
+  }, 0)
+
+  labelBalance.textContent = `${balance} EUR`
+}
+
+calcDisplayBalance(account1.movements)
+
 const createUsernames = function (accs) {
 
   accs.forEach(function(acc) {
@@ -94,6 +104,8 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 // console.log(accounts);
 
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -105,6 +117,7 @@ const currencies = new Map([
 ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
 
 /////////////////////////////////////////////////
 
@@ -136,6 +149,7 @@ const withdrawals = movements.filter(function(mov, i, arr) {
 // console.log(withdrawals);
 
 const balance = movements.reduce(function(acc, cur, i, arr){
+  console.log(`Iteration: ${i}: ${acc}`);
   return acc += cur
 }, 0)
 
