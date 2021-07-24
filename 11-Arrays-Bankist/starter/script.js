@@ -149,7 +149,7 @@ const withdrawals = movements.filter(function(mov, i, arr) {
 // console.log(withdrawals);
 
 const balance = movements.reduce(function(acc, cur, i, arr){
-  console.log(`Iteration: ${i}: ${acc}`);
+  // console.log(`Iteration: ${i}: ${acc}`);
   return acc += cur
 }, 0)
 
@@ -164,4 +164,11 @@ const max = movements.reduce(function(acc, cur) {
   return acc
 }, movements[0])
 
-console.log(max);
+// console.log(max);
+
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => (acc + mov), 0)
+  
+console.log(totalDepositsUSD);
