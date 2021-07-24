@@ -12,7 +12,14 @@ const calcAverageHumanAge = (arr) => {
   })
 
   console.log(newData);
+
+  const filteredData = newData.filter(function(cur, i, arr) {
+    return cur >= 18
+  })
+
+  console.log(filteredData);
 }
 
 calcAverageHumanAge(data1);
+console.log("---------- separator ----------");
 calcAverageHumanAge(data2);
