@@ -160,7 +160,8 @@ const max = movements.reduce(function(acc, cur) {
   if (cur > acc) {
     acc = cur
   }
+  console.log(acc);
   return acc
-}, 0)
+}, movements[0])
 
 console.log(max);
