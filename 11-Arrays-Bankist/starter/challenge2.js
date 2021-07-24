@@ -3,29 +3,14 @@ const data2 = [16, 6, 10, 5, 6, 1, 4];
 
 const calcAverageHumanAge = (arr) => {
 
-  const newData = arr.map(function(dogAge, i, arr) {
-    if (dogAge <= 2) {
-      return humanAge = 2 * dogAge
-    } else {
-      return humanAge = 16 + dogAge * 4
-    }
-  })
+  const newData = arr.map((dogAge) => dogAge <= 2 ? humanAge = 2 * dogAge : humanAge = 16 + dogAge * 4)
 
-  // console.log(newData);
+  const filteredData = newData.filter(cur => cur >= 18)
 
-  const filteredData = newData.filter(function(cur, i, arr) {
-    return cur >= 18
-  })
-
-  // console.log(filteredData);
-
-  const sumOfHumanAges = filteredData.reduce(function(acc, cur, i, arr) {
-    // console.log(`Iteration ${i}: ${acc}`)
-    return acc += cur
-  }, 0)
+  const sumOfHumanAges = filteredData.reduce((acc, cur) => (acc += cur), 0)
 
   const averageAdultHumanAge = sumOfHumanAges / filteredData.length;
-  console.log(averageAdultHumanAge);
+  console.log(averageAdultHumanAge)
 }
 
 calcAverageHumanAge(data1);
