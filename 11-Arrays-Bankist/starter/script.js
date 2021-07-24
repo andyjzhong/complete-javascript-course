@@ -153,4 +153,14 @@ const balance = movements.reduce(function(acc, cur, i, arr){
   return acc += cur
 }, 0)
 
-console.log(balance);
+// console.log(balance);
+
+// Ex. Get maximum value of movements array. Can still use reduce.
+const max = movements.reduce(function(acc, cur) {
+  if (cur > acc) {
+    acc = cur
+  }
+  return acc
+}, 0)
+
+console.log(max);
