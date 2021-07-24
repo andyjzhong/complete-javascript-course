@@ -70,7 +70,7 @@ const displayMovements = function(movements) {
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-        <div class="movements__value">${mov}</div>
+        <div class="movements__value">${Math.abs(mov)}</div>
       </div>
     `;
 
@@ -105,5 +105,9 @@ const eurToUsd = 1.1;
 // Refactor for arrow fn
 const movementsUSD = movements.map(mov => Math.floor(mov * eurToUsd));
 
-console.log(movements);
-console.log(movementsUSD);
+// console.log(movements);
+// console.log(movementsUSD);
+
+const movementDescriptions = movements.map((mov, i) => `Movement ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`)
+
+console.log(movementDescriptions);
