@@ -104,7 +104,29 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 // console.log(accounts);
 
+const calcDisplaySummary = function(movements) {
+  const incomes = movements
+  .filter(mov => mov > 0)
+  .reduce((acc, mov) => acc + mov, 0)
 
+  labelSumIn.textContent = `${incomes} EUR`
+
+  const out = movements
+  .filter(mov => mov < 0)
+  .reduce((acc, mov) => acc + mov, 0)
+
+  labelSumOut.textContent = `${out} EUR`
+
+  const interest = movements
+  .filter(mov => mov > 0)
+  .map(deposit => (deposit * 1.2) / 100)
+  .filter(int => int >= 1)
+  .reduce((acc, int) => acc + int, 0)
+
+  labelSumInterest.textContent = `${interest} EUR`
+}
+
+calcDisplaySummary(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -170,5 +192,5 @@ const totalDepositsUSD = movements
   .filter(mov => mov > 0)
   .map(mov => mov * eurToUsd)
   .reduce((acc, mov) => (acc + mov), 0)
-  
+
 console.log(totalDepositsUSD);
