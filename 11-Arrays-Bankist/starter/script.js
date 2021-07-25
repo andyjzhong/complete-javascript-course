@@ -182,7 +182,7 @@ const max = movements.reduce(function(acc, cur) {
   if (cur > acc) {
     acc = cur
   }
-  console.log(acc);
+  // console.log(acc);
   return acc
 }, movements[0])
 
@@ -193,4 +193,14 @@ const totalDepositsUSD = movements
   .map(mov => mov * eurToUsd)
   .reduce((acc, mov) => (acc + mov), 0)
 
-console.log(totalDepositsUSD);
+// console.log(totalDepositsUSD);
+
+const firstWithdrawal = movements.find(function(cur, i, arr) {
+  return cur < 0
+});
+
+console.log(movements);
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === "Jessica Davis")
+console.log(account);
